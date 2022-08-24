@@ -7,6 +7,8 @@ mMS5837 mMS5837;
 mSdCard mSdCard;
 
 void setup() {
+    Serial.begin(115200);
+    
     mSdCard.init();
     mHX711.init();
     mMS5837.init();
