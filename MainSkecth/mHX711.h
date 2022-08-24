@@ -1,3 +1,6 @@
+#ifndef mHX711_h
+#define mHX711_h
+
 #include <Wire.h>
 #include "HX711.h"
 #include "SensorData.h"
@@ -12,5 +15,7 @@ public:
     virtual ~mHX711();
 
     void init();
-    void readData();
+    void run();
 };
+
+#endif

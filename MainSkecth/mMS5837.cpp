@@ -5,7 +5,6 @@
 
 MS5837 MS5837Sensor;
 
-bool initStatus = 1;
 float SensorData::PRES = 0;
 float SensorData::TEMP = 0;
 float SensorData::DEPTH = 0;
@@ -26,14 +25,14 @@ void mMS5837::init()
     if (!MS5837Sensor.init())
     {
         Serial.print(F("log:"));
-        Serial.print('Bar20 Initialize failed');
+        Serial.print(F("Bar20 Initialize failed"));
         Serial.println(';');
 
-        initStatus = 0;
+        initStatus = false;
     }
 }
 
-void mMS5837::readData()
+void mMS5837::run()
 {
     if (!initStatus) return;
 

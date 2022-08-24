@@ -23,7 +23,7 @@ void mHX711::init()
     HX711Sensor.set_offset(HX711_LOADCELL_OFFSET);
 }
 
-void mHX711::readData()
+void mHX711::run()
 {
     SensorData::WEIGHT = HX711Sensor.get_units(HX711_AVERAGE_SAMPLE_DATA);
 
