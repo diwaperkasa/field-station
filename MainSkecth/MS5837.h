@@ -34,9 +34,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -------------------------------*/
 
-#ifndef MS5837_H_BLUEROBOTICS
-#define MS5837_H_BLUEROBOTICS
-
 #include "Arduino.h"
 #include <Wire.h>
 
@@ -107,5 +104,3 @@ private:
 
 	uint8_t crc4(uint16_t n_prom[]);
 };
-
-#endif
