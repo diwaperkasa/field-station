@@ -11,8 +11,8 @@ mSdCard mSdCard;
 void setup() {
     Serial.begin(SERIAL_BAUDRATE);
 
-    Utils Utility;
-    Utility.setDatetime(2022, 8, 27, 10,31);
+//    Utils Utility;
+//    Utility.setDatetime(2022, 8, 27, 10,31);
     
     mSdCard.init();
     mHX711.init();
