@@ -12,7 +12,7 @@ public:
     ~Utils();
 
     DateTime getDateTime();
-    void setTime();
+    void setDatetime(unsigned int year, unsigned int month, unsigned int day, unsigned int hour = 0, unsigned int minute = 0, unsigned int second = 0);
     void setLedStatus(bool status);
 };
 
