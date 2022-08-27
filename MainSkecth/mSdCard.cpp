@@ -58,21 +58,19 @@ void mSdCard::run()
     
     File file = SD.open(filename, FILE_WRITE);
 
-    if (SD.exists(filename)) {
+    if (!SD.exists(filename) && file) {
       // set header csv file
-      if (file) {
-        file.print("date");
-        file.print(",");
-        file.print("pressure");
-        file.print(",");
-        file.print("temp");
-        file.print(",");
-        file.print("depth");
-        file.print(",");
-        file.print("altitude");
-        file.print(",");
-        file.println("weight");
-      }
+      file.print("date");
+      file.print(",");
+      file.print("pressure");
+      file.print(",");
+      file.print("temp");
+      file.print(",");
+      file.print("depth");
+      file.print(",");
+      file.print("altitude");
+      file.print(",");
+      file.println("weight");
     }
 
     if (file) {
