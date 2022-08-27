@@ -6,12 +6,7 @@
 #include "SensorData.h"
 #include "Utils.h""
 
-Sd2Card card;
-SdVolume volume;
-SdFile root;
 Utils Utility;
-
-unsigned int volumesize = 0;
 
 mSdCard::mSdCard(/* args */)
 {
@@ -37,7 +32,8 @@ void mSdCard::init()
         return;
     }
 
-    volumesize = volume.blocksPerCluster();
+    SdVolume volume;
+    unsigned int volumesize = volume.blocksPerCluster();
     volumesize *= volume.clusterCount();
     volumesize /= 1024;
 
@@ -55,6 +51,10 @@ void mSdCard::run()
     DateTime now = Utility.getDateTime();
     char filename[12];
     sprintf(filename, "%02d-%02d-%d.csv", now.day(), now.month(), now.year());
+
+    Serial.print("log:filename ");
+    Serial.print(filename);
+    Serial.print(";");
     
     File file = SD.open(filename, FILE_WRITE);
 
