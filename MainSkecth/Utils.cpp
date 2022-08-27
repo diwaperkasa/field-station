@@ -23,6 +23,7 @@ void Utils::setDatetime(unsigned int year, unsigned int month, unsigned int day,
 {
     DS3231 DS3231;
 
+    DS3231.setClockMode(false);
     DS3231.setYear(year);
     DS3231.setMonth(month);
     DS3231.setDate(day);
