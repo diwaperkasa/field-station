@@ -16,4 +16,4 @@
 #define SERIAL_BAUDRATE             115200
 
 // Led Notification
-#define PIN_LED_NOTOFICATION        7
+#define PIN_LED_NOTIFICATION        7

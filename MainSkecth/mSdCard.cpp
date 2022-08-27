@@ -5,7 +5,6 @@
 #include "Setting.h"
 #include "SensorData.h"
 #include "Utils.h""
-#include "DS3231.h"
 
 Utils Utility;
 

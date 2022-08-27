@@ -34,7 +34,7 @@ void Utils::setDatetime(byte year, byte month, byte day, byte hour, byte minute,
 
 void Utils::setLedStatus(bool status)
 {
-    digitalWrite(PIN_LED_NOTOFICATION, status); 
+    digitalWrite(PIN_LED_NOTIFICATION, status); 
 }
 
 void Utils::blinkLed()
