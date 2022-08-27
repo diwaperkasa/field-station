@@ -2,16 +2,18 @@
 #include "mMS5837.h"
 #include "mSdCard.h"
 #include "Setting.h"
+#include "Utils.h"
 
 mHX711 mHX711;
 mMS5837 mMS5837;
 mSdCard mSdCard;
 
 void setup() {
-    Serial.begin(SERIAL_BAUDRATE);
-
-    Serial.println(F("log:device restart now"));
+    Utils Utility;
     
+    Serial.begin(SERIAL_BAUDRATE);
+    Serial.println(F("log:device restart now;"));
+    Utility.setLedStatus(false);
     mSdCard.init();
     mHX711.init();
     mMS5837.init();

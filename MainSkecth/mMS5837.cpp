@@ -2,6 +2,7 @@
 #include "SensorData.h"
 #include "MS5837.h"
 #include "mMS5837.h"
+#include "Utils.h"
 
 MS5837 MS5837Sensor;
 
@@ -20,15 +21,14 @@ mMS5837::~mMS5837()
 
 void mMS5837::init()
 {
+    Utils Utility;
+
     Wire.begin();
 
-    if (!MS5837Sensor.init())
-    {
-        Serial.print(F("log:"));
-        Serial.print(F("Bar20 Initialize failed"));
-        Serial.println(';');
-
+    if (!MS5837Sensor.init()) {
+        Serial.print(F("log:Bar20 Initialize failed;"));
         initStatus = false;
+        Utility.setLedStatus(true);
     }
 }
 

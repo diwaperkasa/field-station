@@ -19,18 +19,12 @@ mSdCard::~mSdCard()
 
 void mSdCard::init()
 {
-    Utility.setLedStatus(false);
     Utility.setDatetime(2022, 8, 27, 15, 27);
     
     if (!SD.begin(SDCARD_CS_PIN)) {
         initStatus = false;
-        
-        Serial.print(F("log:"));
-        Serial.print(F("Memory Card not detected"));
-        Serial.println(';');
-
+        Serial.print(F("log:Memory Card not detected;"));
         Utility.setLedStatus(true);
-
         return;
     }
 }
@@ -81,4 +75,6 @@ void mSdCard::run()
     }
 
     file.close();
+
+    Utility.blinkLed();
 }

@@ -36,3 +36,10 @@ void Utils::setLedStatus(bool status)
 {
     digitalWrite(PIN_LED_NOTOFICATION, status); 
 }
+
+void Utils::blinkLed()
+{
+    Utils::setLedStatus(true);
+    delay(100);
+    Utils::setLedStatus(false);
+}
