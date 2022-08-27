@@ -42,20 +42,4 @@ void mMS5837::run()
     SensorData::TEMP = MS5837Sensor.temperature();
     SensorData::DEPTH = MS5837Sensor.depth();
     SensorData::ALTITUDE = MS5837Sensor.altitude();
-
-    Serial.print(F("pressure:"));
-    Serial.print(SensorData::PRES);
-    Serial.print(';');
-
-    Serial.print(F("temp:"));
-    Serial.print(SensorData::TEMP);
-    Serial.print(';');
-
-    Serial.print(F("depth:"));
-    Serial.print(SensorData::DEPTH);
-    Serial.print(';');
-
-    Serial.print(F("altitude:"));
-    Serial.print(SensorData::ALTITUDE);
-    Serial.println(';');
 }

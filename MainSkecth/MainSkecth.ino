@@ -1,13 +1,14 @@
 #include "mHX711.h"
 #include "mMS5837.h"
 #include "mSdCard.h""
+#include "Setting.h""
 
 mHX711 mHX711;
 mMS5837 mMS5837;
 mSdCard mSdCard;
 
 void setup() {
-    Serial.begin(115200);
+    Serial.begin(SERIAL_BAUDRATE);
     
     mSdCard.init();
     mHX711.init();
@@ -19,5 +20,5 @@ void loop() {
     mMS5837.run();
     mSdCard.run();
 
-    delay(1);
+    delay(1000);
 }

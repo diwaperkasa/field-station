@@ -11,3 +11,9 @@
 
 // SD Card
 #define SDCARD_CS_PIN               10
+
+// Serial
+#define SERIAL_BAUDRATE             115200
+
+// Led Notification
+#define PIN_LED_NOTOFICATION        7

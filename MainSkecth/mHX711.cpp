@@ -26,8 +26,4 @@ void mHX711::init()
 void mHX711::run()
 {
     SensorData::WEIGHT = HX711Sensor.get_units(HX711_AVERAGE_SAMPLE_DATA);
-
-    Serial.print(F("weight:"));
-    Serial.print(SensorData::WEIGHT);
-    Serial.println(';');
 }
