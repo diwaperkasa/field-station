@@ -50,8 +50,7 @@ void mSdCard::run()
 
     DateTime now = Utility.getDateTime();
     char filename[12];
-    unsigned int year = 2000 - now.year();
-    sprintf(filename, "%u-%u-%u.csv", now.day(), now.month(), year);
+    sprintf(filename, "%i-%i-%i.csv", now.day(), now.month(), year);
 
     Serial.print("log:filename ");
     Serial.print(filename);
@@ -80,7 +79,7 @@ void mSdCard::run()
 
     if (file) {
         char date[20];
-        sprintf(date, "%u-%u-%u %u:%u:%u", now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
+        sprintf(date, "%i-%i-%i %i:%i:%i", now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
 
         Serial.print("log:datetime ");
         Serial.print(date);
