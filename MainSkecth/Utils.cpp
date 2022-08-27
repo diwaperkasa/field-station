@@ -19,7 +19,7 @@ DateTime Utils::getDateTime()
     return now;
 }
 
-void Utils::setDatetime(byte year, byte month, byte day, byte hour = 0, byte minute, byte second)
+void Utils::setDatetime(byte year, byte month, byte day, byte hour, byte minute, byte second)
 {
     DS3231 DS3231lib;
 

@@ -25,7 +25,6 @@ void mSdCard::init()
         initStatus = false;
         Serial.print(F("log:Memory Card not detected;"));
         Utility.setLedStatus(true);
-        return;
     }
 }
 
