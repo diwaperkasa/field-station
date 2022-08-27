@@ -58,6 +58,10 @@ void mSdCard::run()
     
     File file = SD.open(filename, FILE_WRITE);
 
+    Serial.print("log:file status ");
+    Serial.print(file);
+    Serial.println(";");
+
     if (!SD.exists(filename) && file) {
       // set header csv file
       file.print("date");
