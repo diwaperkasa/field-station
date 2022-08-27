@@ -19,17 +19,17 @@ DateTime Utils::getDateTime()
     return now;
 }
 
-void Utils::setDatetime(unsigned int year, unsigned int month, unsigned int day, unsigned int hour, unsigned int minute, unsigned int second)
+void Utils::setDatetime(byte year, byte month, byte day, byte hour = 0, byte minute, byte second)
 {
-    DS3231 DS3231;
+    DS3231 DS3231lib;
 
-    DS3231.setClockMode(false);
-    DS3231.setYear(year);
-    DS3231.setMonth(month);
-    DS3231.setDate(day);
-    DS3231.setHour(hour);
-    DS3231.setMinute(minute);
-    DS3231.setSecond(second);
+    DS3231lib.setClockMode(false);
+    DS3231lib.setYear(year);
+    DS3231lib.setMonth(month);
+    DS3231lib.setDate(day);
+    DS3231lib.setHour(hour);
+    DS3231lib.setMinute(minute);
+    DS3231lib.setSecond(second);
 }
 
 void Utils::setLedStatus(bool status)

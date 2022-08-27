@@ -5,6 +5,7 @@
 #include "Setting.h"
 #include "SensorData.h"
 #include "Utils.h""
+#include "DS3231.h"
 
 Utils Utility;
 
@@ -19,6 +20,7 @@ mSdCard::~mSdCard()
 void mSdCard::init()
 {
     Utility.setLedStatus(false);
+    Utility.setDatetime(2022, 8, 27, 15, 27);
     
     if (!SD.begin(SDCARD_CS_PIN)) {
         initStatus = false;
@@ -31,17 +33,6 @@ void mSdCard::init()
 
         return;
     }
-
-    SdVolume volume;
-    unsigned int volumesize = volume.blocksPerCluster();
-    volumesize *= volume.clusterCount();
-    volumesize /= 1024;
-
-    Serial.print(F("log:"));
-    Serial.print(F("Memory Card volume size "));
-    Serial.print(volumesize);
-    Serial.print(F(" (Mbytes)"));
-    Serial.println(';');
 }
 
 void mSdCard::run()
@@ -49,18 +40,9 @@ void mSdCard::run()
     if (!initStatus) return;
 
     DateTime now = Utility.getDateTime();
-    char filename[12];
-    sprintf(filename, "%i-%i-%i.csv", now.day(), now.month(), now.year());
-
-    Serial.print("log:filename ");
-    Serial.print(filename);
-    Serial.println(";");
-    
+    char filename[15];
+    sprintf(filename, "%02d%02d%d.csv", now.day(), now.month(), now.year());
     File file = SD.open(filename, FILE_WRITE);
-
-    Serial.print("log:file status ");
-    Serial.print(file);
-    Serial.println(";");
 
     if (!SD.exists(filename) && file) {
       // set header csv file
@@ -79,9 +61,9 @@ void mSdCard::run()
 
     if (file) {
         char date[20];
-        sprintf(date, "%i-%i-%i %i:%i:%i", now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
+        sprintf(date, "%d-%02d-%02d %02d:%02d:%02d", now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
 
-        Serial.print("log:datetime ");
+        Serial.print(F("datetime:"));
         Serial.print(date);
         Serial.println(";");
         
@@ -97,4 +79,6 @@ void mSdCard::run()
         file.print(",");
         file.println(SensorData::WEIGHT);
     }
+
+    file.close();
 }
