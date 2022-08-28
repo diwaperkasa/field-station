@@ -19,6 +19,7 @@ void setup() {
   Utility.init();
   Utility.setLedStatus(false);
   Utility.setRelayStatus(true);
+  delay 1000;
   Utility.blinkLed();
 
   mSdCard.init();
@@ -44,5 +45,6 @@ void loop() {
 void wakeUp() {
   // turn on power sensor
   Utility.setRelayStatus(true);
+  delay 1000;
   Utility.blinkLed();
 }
