@@ -19,6 +19,7 @@ void setup() {
   Utility.init();
   Utility.setLedStatus(false);
   Utility.setRelayStatus(true);
+  Utility.blinkLed();
 
   mSdCard.init();
   mHX711.init();
