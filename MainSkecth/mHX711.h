@@ -4,12 +4,14 @@
 #include <Wire.h>
 #include "HX711.h"
 #include "SensorData.h"
+#include "Setting.h"
 
 class mHX711
 {
 private:
     /* data */
     bool initStatus;
+    HX711 HX711Sensor;
 public:
     mHX711(/* args */);
     virtual ~mHX711();

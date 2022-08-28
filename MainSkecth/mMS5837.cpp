@@ -4,8 +4,6 @@
 #include "mMS5837.h"
 #include "Utils.h"
 
-MS5837 MS5837Sensor;
-
 float SensorData::PRES = 0;
 float SensorData::TEMP = 0;
 float SensorData::DEPTH = 0;

@@ -22,7 +22,7 @@ David Merrifield
 Released into the public domain.
 */
 
-#include "DS3231.h"
+#include "lib/DS3231/DS3231.h"
 
 // These included for the DateTime class inclusion; will try to find a way to
 // not need them in the future...
@@ -34,7 +34,6 @@ Released into the public domain.
 // Changed the following to work on 1.0
 //#include "WProgram.h"
 #include <Arduino.h>
-
 
 #define CLOCK_ADDRESS 0x68
 

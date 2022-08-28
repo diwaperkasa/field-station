@@ -1,10 +1,7 @@
 #include <Arduino.h>
 #include "SensorData.h"
 #include "mHX711.h"
-#include "HX711.h"
 #include "Setting.h"
-
-HX711 HX711Sensor;
 
 float SensorData::WEIGHT = 0;
 
