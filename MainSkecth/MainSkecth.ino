@@ -16,6 +16,7 @@ void setup() {
   Serial.println(F("log:device restart now;"));
 
   pinMode(RTC_ALARM_PIN, INPUT_PULLUP);
+  Utility.init();
   Utility.setLedStatus(false);
   Utility.setRelayStatus(true);
 
