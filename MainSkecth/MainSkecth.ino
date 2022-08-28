@@ -36,4 +36,5 @@ void loop() {
 void wakeUp() {
   //  handler for the pin interrupt.
   Utility.blinkLed();
+  Serial.println(F("log:wake up now;"));
 }
