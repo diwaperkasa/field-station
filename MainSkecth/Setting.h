@@ -15,5 +15,7 @@
 #define INTERVAL_ALARM              10 // in minute
 #define ALARM_TO_SECOND             60 * INTERVAL_ALARM
 #define ALARM_INTERUPT_PIN          5
-//INTERUPT PIN
+// INTERUPT PIN
 #define RTC_ALARM_PIN               2
+// RELAY
+#define RELAY_PIN                   4

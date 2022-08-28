@@ -17,6 +17,12 @@ DateTime Utils::getDateTime()
   return now;
 }
 
+void Utils::init()
+{
+  pinMode(PIN_LED_NOTIFICATION, OUTPUT);
+  pinMode(RELAY_PIN, OUTPUT);
+}
+
 void Utils::setDatetime(DateTime dt)
 {
   rtc.setEpoch(dt.unixtime());
@@ -24,8 +30,12 @@ void Utils::setDatetime(DateTime dt)
 
 void Utils::setLedStatus(bool status)
 {
-  pinMode(PIN_LED_NOTIFICATION, OUTPUT);
   digitalWrite(PIN_LED_NOTIFICATION, status ? HIGH : LOW);
+}
+
+void Utils::setRelayStatus(bool status)
+{
+  digitalWrite(RELAY_PIN, status ? HIGH : LOW);
 }
 
 void Utils::blinkLed()

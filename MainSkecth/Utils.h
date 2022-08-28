@@ -19,6 +19,8 @@ public:
     void setLedStatus(bool status);
     void blinkLed();
     void sleep(unsigned int interval);
+    void init();
+    void setRelayStatus(bool status);
 };
 
 #endif
