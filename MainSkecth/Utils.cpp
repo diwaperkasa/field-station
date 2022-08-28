@@ -40,6 +40,7 @@ void Utils::setRelayStatus(bool status)
   }
   
   digitalWrite(RELAY_PIN, status ? HIGH : LOW);
+  delay 1000;
 }
 
 void Utils::blinkLed()
