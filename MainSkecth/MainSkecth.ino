@@ -45,4 +45,8 @@ void wakeUp() {
   // turn on power sensor
   Utility.setRelayStatus(true);
   Utility.blinkLed();
+  // re-init all sensor, because all sensor has turned off
+  mSdCard.init();
+  mHX711.init();
+  mMS5837.init();
 }
