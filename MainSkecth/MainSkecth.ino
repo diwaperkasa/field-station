@@ -27,14 +27,16 @@ void loop() {
   mHX711.run();
   mMS5837.run();
   mSdCard.run();
-  //  interrupt pin
+  // interrupt pin
   attachInterrupt(digitalPinToInterrupt(RTC_ALARM_PIN), wakeUp, FALLING);
-  //  set power down mode, with alarm set in second
+  // set power down mode, with alarm set in second
   Utility.sleep(ALARM_TO_SECOND);
+  // disable external pin interrupt on wake up pin.
+  detachInterrupt(digitalPinToInterrupt(RTC_ALARM_PIN)); 
 }
 
 void wakeUp() {
-  //  handler for the pin interrupt.
+  // handler for the pin interrupt.
   Utility.blinkLed();
   Serial.println(F("log:wake up now;"));
 }
