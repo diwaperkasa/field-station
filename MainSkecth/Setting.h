@@ -19,3 +19,4 @@
 #define RTC_ALARM_PIN               2
 // RELAY
 #define RELAY_PIN                   4
+#define RELAY_INVERTED_MODE         0

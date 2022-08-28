@@ -35,6 +35,10 @@ void Utils::setLedStatus(bool status)
 
 void Utils::setRelayStatus(bool status)
 {
+  if (RELAY_INVERTED_MODE) {
+    status = !status;
+  }
+  
   digitalWrite(RELAY_PIN, status ? HIGH : LOW);
 }
 
