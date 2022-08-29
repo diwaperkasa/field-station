@@ -139,7 +139,7 @@ typedef Packet* packetPointer;
 
 // function definitions
 unsigned int modbus_update(Packet* packets);
-void modbus_configure(long baud, unsigned int _timeout, unsigned int _polling,
+void modbus_configure(HardwareSerial* comPort, long baud, unsigned char serial_config, unsigned int _timeout, unsigned int _polling,
                       unsigned char _retry_count, unsigned char _TxEnablePin,
                       Packet* packets, unsigned int _total_no_of_packets);
 

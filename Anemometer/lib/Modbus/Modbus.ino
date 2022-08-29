@@ -72,6 +72,7 @@
 #define baud 4800
 #define timeout 1000
 #define polling 200 // the scan rate
+#define MODBUS_SERIAL (Stream*)&Serial1
 
 // If the packets internal retry register matches
 // the set retry count then communication is stopped
@@ -113,12 +114,18 @@ void setup()
      * doc: https://media.digikey.com/pdf/Data%20Sheets/Seeed%20Technology/Wind_Speed_Transmitter_485Type_V1.0_UG.pdf
      */
 
+    Serial.begin(115200);
+    
     packet1->id = 0;
     packet1->function = READ_HOLDING_REGISTERS;
     packet1->address = 0;
     packet1->no_of_registers = 2;
     packet1->register_array = windSpeed;
-    modbus_configure(baud, timeout, polling, retry_count, TxEnablePin, packets, TOTAL_NO_OF_PACKETS);
+    /**
+     * doc: https://www.arduino.cc/reference/en/language/functions/communication/serial/begin/
+     * for config setup
+     */
+    modbus_configure(MODBUS_SERIAL, 4800, SERIAL_8N1, timeout, polling, retry_count, 0, packets, TOTAL_NO_OF_PACKETS);
 }
 
 void loop()
@@ -129,7 +136,7 @@ void loop()
         Serial.print(F("windSpeed:"));
         Serial.print(windSpeed[0]);
         Serial.print(" ");
-        Serial.println(windSpeed[2]);
+        Serial.println(windSpeed[1]);
 
         last_toggle = millis();
     }
